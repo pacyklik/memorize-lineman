@@ -1,7 +1,8 @@
-angular.module("app").controller('LoginController', function ($scope, $state, AuthenticationService) {
+angular.module("app").controller('LoginController', function ($rootScope, $scope, $state, AuthenticationService) {
     $scope.credentials = {username: "", password: ""};
 
     var onLoginSuccess = function () {
+        $rootScope.authenticated = true;
         $state.go("home");
     };
 

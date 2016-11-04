@@ -1,5 +1,5 @@
 
-var app = angular.module("app", ["ui.router", "ui.bootstrap"]);
+var app = angular.module("app", ["ui.router", "ui.bootstrap", "pascalprecht.translate"]);
 
 app.run(function($rootScope) {
   // adds some basic utilities to the $rootScope for debugging purposes
