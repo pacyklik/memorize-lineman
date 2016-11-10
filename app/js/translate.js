@@ -9,10 +9,12 @@ angular.module("app").config(function ($translateProvider) {
         'STATS': 'Statystyki',
         'LOGGED_AS': 'Jesteś zalogowany jako:',
         'LOGOUT': 'Wyloguj się',
-        //'': '',
-        //'': '',
-        //'': '',
-        //'': '',
+        'KNOW': 'Znam',
+        'TO_LEARN': 'Do nauki',
+        'SAVE': 'Zapisz',
+        'SKIP': 'Pomiń',
+        'YES': 'TAK',
+        'NO': 'NIE',
         '': ''
     });
 

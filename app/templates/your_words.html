@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="columns" role="content">
+        <article>
+            <div class="primary callout">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <table class="table">
+                            <thead>
+                            <th class="text-center" ng-repeat="header in headers">
+                                {{header.name}}
+                            </th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="text" placeholder="large-4.columns"></td>
+                                <td><input type="text" placeholder="large-4.columns"></td>
+                                <td><select>
+                                    <option></option>
+                                    <option>0600</option>
+                                </select></td>
+                                <td><select>
+                                    <option></option>
+                                    <option>{{'YES' | translate}}</option>
+                                    <option>{{'NO' | translate}}</option>
+                                </select></td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="input-group-field">
+                                        <span class="input-group-label" style="background: #fff;">
+                                            <select>
+                                                <option></option>
+                                                <option> > </option>
+                                                <option> < </option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="word in words">
+                                <td>{{word.word}}</td>
+                                <td>{{word.translate}}</td>
+                                <td>{{word.lesson}}</td>
+                                <td>{{word.prepared ? 'YES' : 'NO' | translate}}</td>
+                                <td>{{word.levelLearned}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
