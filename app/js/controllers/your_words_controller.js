@@ -7,11 +7,20 @@ angular.module("app").controller('YourWordsController', function ($rootScope, $s
         {name: "LEVEL_LEARNED", value: "levelLearned"}
     ];
 
-    var filter = [
+    $scope.filter = {
+        page: 0
+    };
 
-    ];
+    $scope.reloadWords = function() {
+        WordsService.getWords($scope.filter, function (response) {
+            $scope.words = response.data;
+        });
+    };
 
-    WordsService.getWords(filter, function (response) {
-        $scope.words = response.data;
+    WordsService.getLessons(function (response) {
+        $scope.lessons = response.data;
     });
+
+    $scope.reloadWords();
+
 });

@@ -12,25 +12,25 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><input type="text" placeholder="large-4.columns"></td>
-                                <td><input type="text" placeholder="large-4.columns"></td>
-                                <td><select>
+                                <td><input on-enter-blur="reloadWords()" ng-model="filter.word" type="text"></td>
+                                <td><input on-enter-blur="reloadWords()" ng-model="filter.translate" type="text"></td>
+                                <td><select ng-change="reloadWords()" ng-model="filter.lesson" ng-options="lesson for lesson in lessons">
                                     <option></option>
-                                    <option>0600</option>
                                 </select></td>
-                                <td><select>
+                                <td><select ng-change="reloadWords()" ng-model="filter.prepared">
                                     <option></option>
-                                    <option>{{'YES' | translate}}</option>
-                                    <option>{{'NO' | translate}}</option>
+                                    <option value="yes">{{'YES' | translate}}</option>
+                                    <option value="no">{{'NO' | translate}}</option>
                                 </select></td>
                                 <td>
-                                    <div class="input-group">
-                                        <input type="text" class="input-group-field">
+                                    <div class="input-group" style="width: 150px;">
+                                        <input on-enter-blur="reloadWords()" ng-model="filter.level" type="text" class="input-group-field" style="width: 80px;">
                                         <span class="input-group-label" style="background: #fff;">
-                                            <select>
+                                            warunek:
+                                            <select ng-change="reloadWords()" ng-model="filter.levelL" style="width: 50px;">
                                                 <option></option>
-                                                <option> > </option>
-                                                <option> < </option>
+                                                <option value="bigger"> ></option>
+                                                <option value="smaller"> <</option>
                                             </select>
                                         </span>
                                     </div>
@@ -47,7 +47,11 @@
                         </table>
                     </div>
                 </div>
+                <div class="row">
+                    <pagination page="1", perPage="10", total-items="100", on-change="reloadWords()"></pagination>
+                </div>
             </div>
-        </article>
     </div>
+    </article>
+</div>
 </div>

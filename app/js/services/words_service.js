@@ -13,13 +13,26 @@ angular.module("app").factory('WordsService', function ($http) {
     };
 
     var getWords = function (filter, onSuccess) {
-        $http.get('/api/words/get_words/' + filter.page).then(onSuccess, onFailure);
+        var page = filter.page;
+        var params = {};
+        for (var key in filter) {
+            var value = filter[key];
+            if (value !== null && value !== '' && key !== 'page') {
+                params[key] = value;
+            }
+        }
+        $http.get('/api/words/get_words/' + page, {params: params}).then(onSuccess, onFailure);
+    };
+
+    var getLessons = function (onSuccess) {
+        $http.get('/api/lessons/get_lessons').then(onSuccess, onFailure);
     };
 
     return {
         listToCheck: listToCheck,
         updateListToCheck: updateListToCheck,
-        getWords: getWords
+        getWords: getWords,
+        getLessons: getLessons
     };
 
 });

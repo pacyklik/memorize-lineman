@@ -41,6 +41,8 @@ module.exports = {
             {id: 10, word: 'familiar', translate: 'znajomy', lesson: '0600', prepared: false, levelLearned: 0}
         ];
 
+        var lessons = ['0100', '0200', '0300', '0400'];
+
         app.post('/login', function (req, res) {
             res.json({message: 'logging in!'});
         });
@@ -55,6 +57,10 @@ module.exports = {
 
         app.post('/api/words/list_to_check', function (req, res) {
             res.json(wordsToCheck);
+        });
+
+        app.get('/api/lessons/get_lessons', function (req, res) {
+            res.json(lessons);
         });
 
         app.get('/api/words/get_words/:page', function (req, res) {

@@ -2828,7 +2828,6 @@ body {
       background: #e6e6e6; }
   .pagination .current {
     padding: 0.1875rem 0.625rem;
-    background: #2199e8;
     color: #fefefe;
     cursor: default; }
   .pagination .disabled {
