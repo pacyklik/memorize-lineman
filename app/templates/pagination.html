@@ -1,13 +1,21 @@
 <div class="pagination-centered">
     <ul class="pagination" role="menubar" aria-label="Pagination">
-        <li class="arrow unavailable" aria-disabled="true"><a href="">&laquo;</a></li>
-        <li class="current"><a href="">1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
-        <li><a href="">4</a></li>
-        <li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>
-        <li><a href="">12</a></li>
-        <li><a href="" ng-click="setPage(13)">13</a></li>
-        <li class="arrow"><a href="">&raquo;</a></li>
+        <li class="arrow"><a href="" ng-click='setPage(currentPage-1)'>&laquo;</a></li>
+        <li ng-repeat="page in listPages" ng-class="{current:page.num == currentPage, unavailable:page.num == '...'}"><a href="" ng-click='setPage(page.num)'>{{page.num}}</a></li>
+        <li class="arrow"><a href="" ng-click='setPage(currentPage+1)'>&raquo;</a></li>
     </ul>
 </div>
+
+<!--<div class="pagination-centered">-->
+    <!--<ul class="pagination" role="menubar" aria-label="Pagination">-->
+        <!--<li class="arrow unavailable" aria-disabled="true"><a href="">&laquo;</a></li>-->
+        <!--<li class="current"><a href="">1</a></li>-->
+        <!--<li><a href="">2</a></li>-->
+        <!--<li><a href="">3</a></li>-->
+        <!--<li><a href="">4</a></li>-->
+        <!--<li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>-->
+        <!--<li><a href="">12</a></li>-->
+        <!--<li><a href="" ng-click="setPage(13)">13</a></li>-->
+        <!--<li class="arrow"><a href="">&raquo;</a></li>-->
+    <!--</ul>-->
+<!--</div>-->

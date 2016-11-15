@@ -12,12 +12,12 @@ angular.module("app").factory('WordsService', function ($http) {
         $http.post('/api/words/list_to_check', data).then(onSuccess, onFailure);
     };
 
-    var getWords = function (filter, onSuccess) {
-        var page = filter.page;
+    var getWords = function (page, filter, onSuccess) {
+        //var page = filter.page;
         var params = {};
         for (var key in filter) {
             var value = filter[key];
-            if (value !== null && value !== '' && key !== 'page') {
+            if (value !== null && value !== '') {
                 params[key] = value;
             }
         }
