@@ -3248,10 +3248,10 @@ table.hover tfoot tr:hover {
   background-color: #ececec; }
 
 table.hover tbody tr:hover {
-  background-color: #f9f9f9; }
+  background-color: #dbdbdb; }
 
 table.hover tbody tr:nth-of-type(even):hover {
-  background-color: #ececec; }
+  background-color: #dbdbdb; }
 
 .table-scroll {
   overflow-x: auto; }

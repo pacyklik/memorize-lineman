@@ -3,15 +3,26 @@
         <article>
             <div class="primary callout">
                 <div class="row">
+                    <div class="columns">
+                        Tryb nauki: <br/>
+                        <select ng-change="reloadWords()" ng-model="checkedLesson">
+                            <option value="all">Wszystkie lekcje.</option>
+                            <option ng-repeat="lesson in lessons" value="{{lesson}}">Tylko lekcja: {{lesson}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="primary callout">
+                <div class="row">
                     <div class="large-6 columns">
-                        Sprawdź znajomość nowych słówek: {{numOfWord+1}}/10
+                        Sprawdź znajomość słówka w oparciu o zdania: {{numOfWord+1}}/{{wordListLength}}
                     </div>
                 </div>
                 <div class="row">&nbsp;</div>
                 <div class="row">
                     <div class="large-6 columns">
                         <div class="button" ng-click="translate=true;">
-                            {{flashcard.word}}
+                            {{flashcard.sentence}}
                         </div>
                         <div class="button" ng-show="translate">
                             {{flashcard.translate}}

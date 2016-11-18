@@ -4,13 +4,11 @@
             <div class="primary callout">
                 <div class="row">
                     <div class="large-12 columns">
-                        <table class="table">
+                        <table class="table hover text-center">
                             <thead>
                             <th class="text-center" ng-repeat="header in headers">
                                 {{header.name}}
                             </th>
-                            </thead>
-                            <tbody>
                             <tr>
                                 <td><input on-enter-blur="reloadWords()" ng-model="filter.word" type="text"></td>
                                 <td><input on-enter-blur="reloadWords()" ng-model="filter.translate" type="text"></td>
@@ -36,7 +34,9 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr ng-repeat="word in words">
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="word in words" ng-click="editWord(word.id)">
                                 <td>{{word.word}}</td>
                                 <td>{{word.translate}}</td>
                                 <td>{{word.lesson}}</td>
@@ -48,8 +48,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <pagination per-page="10" total-items="100" on-change="changeSite"/>
-                    <!--< pagination page="filter.page", perPage="10", total-items="100", on-change="reloadWords()"></ pagination>-->
+                    <pagination per-page="10" total-items="1000" on-change="changeSite"/>
                 </div>
             </div>
     </div>

@@ -9,21 +9,48 @@ angular.module("app").directive("pagination", function ($parse) {
             totalItems: '@',
             onChange: '='
         },
-        link: function(scope, element, attrs) {
+        link: function (scope, element, attrs) {
             console.log('scope.perPage > ' + scope.perPage);
             console.log('scope.totalItems > ' + scope.totalItems);
             scope.currentPage = 1;
             scope.totalPages = scope.totalItems / scope.perPage;
-            scope.listPages = [
-                {num: 1},
-                {num: 2},
-                {num: 3, current: true},
-                {num: 4},
-                {num: '...'},
-                {num: 9},
-                {num: 10}
-            ];
 
+            scope.refresh = function () {
+                scope.listPages = [];
+                var i;
+                if (scope.totalPages < 10) {
+                    for (i = 1; i <= scope.totalPages; i++) {
+                        scope.listPages.push({num: i});
+                    }
+                } else {
+                    if (scope.currentPage <= 4) {
+                        for (i = 1; i <= 5; i++) {
+                            scope.listPages.push({num: i});
+                        }
+                        scope.listPages.push({num: '...'});
+                        scope.listPages.push({num: (scope.totalPages - 1)});
+                        scope.listPages.push({num: scope.totalPages});
+                    } else if (scope.currentPage > scope.totalPages - 4) {
+                        scope.listPages.push({num: 1});
+                        scope.listPages.push({num: 2});
+                        scope.listPages.push({num: '...'});
+                        for (i = scope.totalPages - 4; i <= scope.totalPages; i++) {
+                            scope.listPages.push({num: i});
+                        }
+                    } else {
+                        scope.listPages.push({num: 1});
+                        scope.listPages.push({num: 2});
+                        scope.listPages.push({num: '...'});
+                        scope.listPages.push({num: scope.currentPage - 1});
+                        scope.listPages.push({num: scope.currentPage});
+                        scope.listPages.push({num: scope.currentPage + 1});
+                        scope.listPages.push({num: '...'});
+                        scope.listPages.push({num: scope.totalPages - 1});
+                        scope.listPages.push({num: scope.totalPages});
+                    }
+                }
+            };
+            scope.refresh();
 
             scope.setPage = function (page) {
                 if (page !== '...') {
@@ -34,6 +61,7 @@ angular.module("app").directive("pagination", function ($parse) {
                         page = scope.totalPages;
                     }
                     scope.currentPage = page;
+                    scope.refresh();
                     scope.onChange(page);
                 }
             };

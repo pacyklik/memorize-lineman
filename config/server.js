@@ -28,6 +28,12 @@ module.exports = {
             {id: 10, word: 'familiar', translate: 'znajomy', know: false}
         ];
 
+        var sentencesToCheck = [
+            {id: 44, sentence: "I am able to help you now.", translate: "Jestem w stanie Ci pomóc teraz."},
+            {id: 44, sentence: "I am able to go with you.", translate: "Jestem w stanie iść z tobą."},
+            {id: 44, sentence: "able", translate: "zdolny"}
+        ];
+
         var words = [
             {id: 1, word: 'attempt', translate: 'próba', lesson: '0600', prepared: false, levelLearned: 0},
             {id: 2, word: 'concern', translate: 'troska', lesson: '0600', prepared: false, levelLearned: 0},
@@ -38,7 +44,7 @@ module.exports = {
             {id: 7, word: 'eventually', translate: 'ostatecznie', lesson: '0600', prepared: false, levelLearned: 0},
             {id: 8, word: 'craft', translate: 'rzemiosło', lesson: '0600', prepared: false, levelLearned: 0},
             {id: 9, word: 'throughout', translate: 'poprzez', lesson: '0600', prepared: false, levelLearned: 0},
-            {id: 10, word: 'familiar', translate: 'znajomy', lesson: '0600', prepared: false, levelLearned: 0}
+            {id: 10, word: 'familiar', translate: 'znajomy', sentence: "Sounds familiar.", sentenceTranslate: "Brzmi znajomo.", lesson: '0600', prepared: true, levelLearned: 0}
         ];
 
         var lessons = ['0100', '0200', '0300', '0400'];
@@ -59,13 +65,41 @@ module.exports = {
             res.json(wordsToCheck);
         });
 
+        app.get('/api/words/sentences', function (req, res) {
+            res.json(sentencesToCheck);
+        });
+
+        app.post('/api/words/sentences', function (req, res) {
+            res.json(sentencesToCheck);
+        });
+
         app.get('/api/lessons/get_lessons', function (req, res) {
+            res.json(lessons);
+        });
+
+        app.get('/api/lessons/get_lessons_to_learn', function (req, res) {
             res.json(lessons);
         });
 
         app.get('/api/words/get_words/:page', function (req, res) {
             //alert('>>> ' + req.params.page);
             res.json(words);
+        });
+
+        app.get('/api/word/:id', function (req, res) {
+            //console.log('>>> ' + req.params.id);
+            words.forEach(function (item) {
+                //console.log('>>> ' + item.id);
+                if (item.id == req.params.id) {
+                    //console.log('>>> #');
+                    res.json(item);
+                }
+            });
+        });
+
+        app.post('/api/word/:id', function (req, res) {
+            //console.log('req.body >>> ' + req.body);
+            res.json(req.body.params);
         });
 
     }

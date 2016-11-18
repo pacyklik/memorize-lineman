@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h3>{{word.word}}</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <div class="row">
+            <div class="columns" role="content">
+                <article>
+                    <div class="primary callout">
+                        <div class="row">
+                            <div class="columns">
+                                Tłumaczenie słowa: <input ng-model="word.translate" type="text"/>
+                                Poziom nauczenia: <input ng-model="word.levelLearned" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="primary callout">
+                        <div class="row">
+                            <div class="columns">
+                                Przykładowe zdania z użyciem słówka, oddzielaj je znakami [enter].<br/><br/>
+
+                                <div class="large-12 columns">
+                                    <label>Zdania w języku oryginalnym:</label>
+                                    <textarea placeholder="follow">{{word.sentence}}</textarea>
+                                </div>
+                                <div class="large-12 columns">
+                                    <label>Tłumaczenie zdań:</label>
+                                    <textarea placeholder="śledzić">{{word.sentenceTranslate}}</textarea>
+                                </div>
+
+                                <div class="large-12 columns">&nbsp;</div>
+
+                                <div class="large-12 columns">
+                                    <div class="success button" ng-click="save()">
+                                        {{"SAVE" | translate}}
+                                    </div>
+                                    <div class="alert button" ng-click="cancel()">
+                                        {{"SKIP" | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="columns">
+
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </div>
+</div>

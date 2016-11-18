@@ -1,20 +1,24 @@
 // dodajemy routing
 // zaleznie czy jest /#/ czy /#/list co innego sie pobierze i wyswietli
 app.config(function ($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise("/login");
+
     $stateProvider
         .state("login", {
             url: "/login",
             templateUrl: 'login.html',
             controller: 'LoginController'
-        }).state("home", {
+        })
+        .state("home", {
             url: "/home",
             templateUrl: 'home.html',
             controller: 'HomeController'
         })
         .state("READ_NEW", {
             url: "/read_new",
-            templateUrl: 'read_new.html'
-            //controller: 'ReadNewController'
+            templateUrl: 'read_new.html',
+            controller: 'ReadNewController'
         })
         .state("CHECK_KNOWLEDGE", {
             url: "/check_knowledge",
@@ -40,7 +44,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: "/stats",
             templateUrl: 'stats.html',
             controller: 'StatsController'
-        });
+        })
+    ;
 
-    $urlRouterProvider.otherwise("/login");
 });

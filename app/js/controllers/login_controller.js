@@ -7,7 +7,7 @@ angular.module("app").controller('LoginController', function ($rootScope, $scope
     };
 
     var onLoginFailure = function () {
-        alert('B³¹d logowania!');
+        alert('BÅ‚Ä…d logowania!');
     };
 
     $scope.login = function () {

@@ -16,12 +16,12 @@
             <div class="large-12 columns">
                 <div class="nav-bar left">
                     <ul class="button-group">
-                        <li><a href="#" class="button" ng-click="nav('READ_NEW')">{{"READ_NEW" | translate}}</a></li>
-                        <li><a href="#" class="button" ng-click="nav('CHECK_KNOWLEDGE')">{{"CHECK_KNOWLEDGE" | translate}}</a></li>
-                        <li><a href="#" class="button" ng-click="nav('PREPARE_WORDS')">{{"PREPARE_WORDS" | translate}}</a></li>
-                        <li><a href="#" class="button" ng-click="nav('LESSON')">{{"LESSON" | translate}}</a></li>
-                        <li><a href="#" class="button" ng-click="nav('YOUR_WORDS')">{{"YOUR_WORDS" | translate}}</a></li>
-                        <li><a href="#" class="button" ng-click="nav('STATS')">{{"STATS" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('READ_NEW')">{{"READ_NEW" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('CHECK_KNOWLEDGE')">{{"CHECK_KNOWLEDGE" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('PREPARE_WORDS')">{{"PREPARE_WORDS" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('LESSON')">{{"LESSON" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('YOUR_WORDS')">{{"YOUR_WORDS" | translate}}</a></li>
+                        <li><a href="" class="button" ng-click="nav('STATS')">{{"STATS" | translate}}</a></li>
                     </ul>
                 </div>
                 <hr/>
