@@ -57,11 +57,11 @@ module.exports = {
             res.json({message: 'logging out!'});
         });
 
-        app.get('/api/words/list_to_check', function (req, res) {
+        app.get('/api/words/to_check', function (req, res) {
             res.json(wordsToCheck);
         });
 
-        app.post('/api/words/list_to_check', function (req, res) {
+        app.post('/api/words/to_check', function (req, res) {
             res.json(wordsToCheck);
         });
 
@@ -73,20 +73,11 @@ module.exports = {
             res.json(sentencesToCheck);
         });
 
-        app.get('/api/lessons/get_lessons', function (req, res) {
-            res.json(lessons);
-        });
+        //app.get('/api/words/find/:page', function (req, res) {
+        //    res.json(words);
+        //});
 
-        app.get('/api/lessons/get_lessons_to_learn', function (req, res) {
-            res.json(lessons);
-        });
-
-        app.get('/api/words/get_words/:page', function (req, res) {
-            //alert('>>> ' + req.params.page);
-            res.json(words);
-        });
-
-        app.get('/api/word/:id', function (req, res) {
+        app.get('/api/words/:id', function (req, res) {
             //console.log('>>> ' + req.params.id);
             words.forEach(function (item) {
                 //console.log('>>> ' + item.id);
@@ -97,9 +88,19 @@ module.exports = {
             });
         });
 
-        app.post('/api/word/:id', function (req, res) {
+        app.post('/api/words/:id', function (req, res) {
             //console.log('req.body >>> ' + req.body);
             res.json(req.body.params);
+        });
+
+        //////////////////////////////////////////////////
+
+        app.get('/api/lessons/all', function (req, res) {
+            res.json(lessons);
+        });
+
+        app.get('/api/lessons/to_learn', function (req, res) {
+            res.json(lessons);
         });
 
     }

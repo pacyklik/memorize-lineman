@@ -16,4 +16,7 @@ app.run(function ($rootScope) {
     });
 });
 
+//app.config(function (growlProvider, $httpProvider) {
+//    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+//});
 
