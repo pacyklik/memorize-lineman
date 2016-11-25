@@ -22,7 +22,8 @@
                                 </select></td>
                                 <td>
                                     <div class="input-group" style="width: 150px;">
-                                        <input on-enter-blur="reloadWords()" ng-model="filter.levelLearned" ng-pattern="/^(0|\-?[1-9][0-9]*)$/" type="text" class="input-group-field" style="width: 80px;">
+                                        <input on-enter-blur="reloadWords()" ng-model="filter.levelLearned" ng-pattern="/^(0|\-?[1-9][0-9]*)$/" type="text" class="input-group-field"
+                                               style="width: 80px;">
                                         <span class="input-group-label">
                                             warunek:
                                             <select ng-change="reloadWords()" ng-model="filter.thanLevelLearned" style="width: 50px;">
@@ -48,10 +49,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <pagination per-page="10" total-items="1000" on-change="changeSite"/>
+                    <pagination per-page="10" total-items="{{count}}" on-change="changeSite"/>
                 </div>
             </div>
+        </article>
     </div>
-    </article>
-</div>
 </div>

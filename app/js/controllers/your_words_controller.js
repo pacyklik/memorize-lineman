@@ -9,18 +9,23 @@ angular.module("app").controller('YourWordsController', function ($rootScope, $s
 
     $scope.filter = {};
     $scope.page = 0;
+    $scope.count = 0;
 
     $scope.reloadWords = function () {
         console.info("reloadWords()");
         WordsService.getWords($scope.page, $scope.filter, function (response) {
-            $scope.words = response.data;
+            //console.info("\n\n from server: " + JSON.stringify(response.data) + "\n\n");
+            $scope.count = response.data.count;
+            $scope.words = response.data.words;
+            //console.info(JSON.stringify($scope.words));
         });
     };
 
     $scope.changeSite = function (page) {
         console.info("changeSite()");
-        WordsService.getWords(page, $scope.filter, function (response) {
-            $scope.words = response.data;
+        WordsService.getWords(page - 1, $scope.filter, function (response) {
+            $scope.count = response.data.count;
+            $scope.words = response.data.words;
         });
     };
 

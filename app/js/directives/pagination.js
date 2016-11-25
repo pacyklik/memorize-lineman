@@ -10,15 +10,16 @@ angular.module("app").directive("pagination", function ($parse) {
             onChange: '='
         },
         link: function (scope, element, attrs) {
-            console.log('scope.perPage > ' + scope.perPage);
-            console.log('scope.totalItems > ' + scope.totalItems);
-            scope.currentPage = 1;
-            scope.totalPages = scope.totalItems / scope.perPage;
-
             scope.refresh = function () {
-                scope.listPages = [];
                 var i;
-                if (scope.totalPages < 10) {
+                scope.totalPages = (scope.totalItems / scope.perPage) | 0;
+                if (scope.totalItems % scope.perPage > 0) {
+                    scope.totalPages++;
+                }
+                scope.listPages = [];
+                if (scope.totalPages < 2) {
+                    scope.listPages.push({num: '1'});
+                } else if (scope.totalPages < 10) {
                     for (i = 1; i <= scope.totalPages; i++) {
                         scope.listPages.push({num: i});
                     }
@@ -50,7 +51,6 @@ angular.module("app").directive("pagination", function ($parse) {
                     }
                 }
             };
-            scope.refresh();
 
             scope.setPage = function (page) {
                 if (page !== '...') {
@@ -65,6 +65,11 @@ angular.module("app").directive("pagination", function ($parse) {
                     scope.onChange(page);
                 }
             };
+
+            scope.$watch("totalItems", function () {
+                scope.currentPage = 1;
+                scope.refresh();
+            });
         }
     };
 });
