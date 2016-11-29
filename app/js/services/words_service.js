@@ -36,8 +36,17 @@ angular.module("app").factory('WordsService', function ($http) {
     };
 
     var updateWord = function (word, onSuccess) {
-        //console.log("updateWord >> " + JSON.stringify(word));
-        $http.post('/api/words/' + word.id, {params: word}).then(onSuccess, onFailure);
+        //console.log("updateWord before >> " + JSON.stringify(word));
+        //console.log(word.sentence instanceof Array);
+        if (!(word.sentence instanceof Array)) {
+            word.sentence = word.sentence.split("\n");
+        }
+        if (!(word.sentenceTranslate instanceof Array)) {
+            word.sentenceTranslate = word.sentenceTranslate.split("\n");
+        }
+        //console.log("updateWord after >> " + JSON.stringify(word));
+        //console.log(word.sentence instanceof Array);
+        $http.post('/api/words/' + word.id, word).then(onSuccess, onFailure);
     };
 
     var getLessons = function (onSuccess) {

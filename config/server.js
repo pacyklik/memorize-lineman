@@ -77,21 +77,21 @@ module.exports = {
         //    res.json(words);
         //});
 
-        app.get('/api/words/:id', function (req, res) {
-            //console.log('>>> ' + req.params.id);
-            words.forEach(function (item) {
-                //console.log('>>> ' + item.id);
-                if (item.id == req.params.id) {
-                    //console.log('>>> #');
-                    res.json(item);
-                }
-            });
-        });
+        //app.get('/api/words/:id', function (req, res) {
+        //    //console.log('>>> ' + req.params.id);
+        //    words.forEach(function (item) {
+        //        //console.log('>>> ' + item.id);
+        //        if (item.id == req.params.id) {
+        //            //console.log('>>> #');
+        //            res.json(item);
+        //        }
+        //    });
+        //});
 
-        app.post('/api/words/:id', function (req, res) {
+        //app.post('/api/words/:id', function (req, res) {
             //console.log('req.body >>> ' + req.body);
-            res.json(req.body.params);
-        });
+            //res.json(req.body.params);
+        //});
 
         //////////////////////////////////////////////////
 
