@@ -2,7 +2,10 @@
     <div class="columns" role="content">
         <article>
             Dodaj nowe lekcje:
-            <input type="file" nv-file-select="" uploader="uploader" multiple />
+            <div>
+                <input type = "file" id="input_file" file-model = "myFile"/>
+                <button ng-click = "uploadFile()">Wczytaj lekcję</button>
+            </div>
         </article>
     </div>
 </div>
